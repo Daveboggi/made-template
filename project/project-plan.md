@@ -26,7 +26,7 @@ This project faces the topic emobility in sense of analyzing the impact of elect
 * The Dataset containes different air quality values like CO2 or N2 and shows the time related difference over the past years
 
 ### Datasource2: 
-* Data URL: https://www.kba.de/DE/Statistik/Fahrzeuge/Neuzulassungen/Umwelt/n_umwelt_node.html;jsessionid=CC5699F2C86867AF53212ED5FAB19CCD.live21303?yearFilter=2022
+* Data URL: https://www.kba.de/DE/Statistik/Fahrzeuge/Neuzulassungen/Umwelt/n_umwelt_node.html;jsessionid=CC5699F2C86867AF53212ED5FAB19CCD.live21303
 * Data Type: XSLX
 
 * This Dataset shows the number of new admitted cars with alternate drive over the past years
