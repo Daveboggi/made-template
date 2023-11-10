@@ -1,0 +1,37 @@
+pipeline AirportPipeline {
+    block AirportDataExtractor oftype HttpExtractor{
+        url: "https://opendata.rhein-kreis-neuss.de/api/v2/catalog/datasets/rhein-kreis-neuss-flughafen-weltweit/exports/csv";
+    }
+    block AirportFileInterpreter oftype TextFileInterpreter{}
+    block AirportCSVInterpreter oftype CSVInterpreter{
+        enclosing: '"';
+    }
+    block AirportTableInterpreter oftype TableInterpreter{
+        header: true;
+        columns: [
+            "Flight Number" oftype integer,
+            "Airport Name" oftype text,
+            "Country" oftype text,
+            "Location" oftype text,
+            "IATA-Flughafencode" oftype text,
+            "ICAO-Code" oftype text,
+            "Breitengrad als Dezimalgrad" oftype text,
+            "Längengrad als Dezimalgrad" oftype text,
+            "Flughöhe in m" oftype integer,
+            "Zeitverschiebung von UTC" oftype decimal,
+            "Sommerzeit" oftype text,
+            "Zeitzonen-Datenbank" oftype text,
+            "geo_punkt" oftype text,
+        ];
+    }
+    block AirportLoader oftype SQLiteLoader {
+        table: "airports";
+        file: "./airports.sqlite";
+    }
+
+    AirportDataExtractor
+        ->AirportFileInterpreter
+        ->AirportCSVInterpreter
+        ->AirportTableInterpreter
+        ->AirportLoader;
+}
