@@ -4,7 +4,7 @@ pipeline AirportPipeline {
     }
     block AirportFileInterpreter oftype TextFileInterpreter{}
     block AirportCSVInterpreter oftype CSVInterpreter{
-        enclosing: '"';
+        delimiter: ";";
     }
     block AirportTableInterpreter oftype TableInterpreter{
         header: true;
