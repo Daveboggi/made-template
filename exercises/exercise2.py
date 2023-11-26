@@ -40,8 +40,8 @@ dtype={
     "IFOPT": sqlalchemy.TEXT,
     "NAME": sqlalchemy.TEXT,
     "Verkehr": sqlalchemy.TEXT,
-    "Laenge": sqlalchemy.TEXT,
-    "Breite": sqlalchemy.TEXT,
+    "Laenge": sqlalchemy.Float,
+    "Breite": sqlalchemy.Float,
     "Betreiber_Name": sqlalchemy.TEXT,
     "Betreiber_Nr": sqlalchemy.BIGINT
 }
