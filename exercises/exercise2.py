@@ -9,10 +9,9 @@ def is_valid_ifopt(value):
     return bool(re.match(pattern, str(value)))
 
 
-
 # Download the CSV data
 csv_url = "https://download-data.deutschebahn.com/static/datasets/haltestellen/D_Bahnhof_2020_alle.CSV"
-df = pd.read_csv(csv_url, delimiter=";")
+df = pd.read_csv(csv_url, delimiter=";", decimal=",")
 
 
 # Drop the "Status" column
@@ -24,19 +23,15 @@ df = df[df["Verkehr"].isin(["FV", "RV", "nur DPN"])]
 # Check for NaN values
 df = df.dropna()
 
-# Convert "Breite" and "Laenge" to numeric type
-df["Breite"] = df["Breite"].str.replace(',', '.').astype(float)
-df["Laenge"] = df["Laenge"].str.replace(',', '.').astype(float)
-# Filter rows with valid coordinates
-#df = df[(df["Laenge"].between(-90, 90)) & (df["Breite"].between(-90, 90))]
 
+# Filter rows with valid lenght and width values
+df = df[(df["Laenge"].between(-90, 90)) & (df["Breite"].between(-90, 90))]
 
-
+#Filter IFOPT
 df = df[df["IFOPT"].apply(is_valid_ifopt)]
-df.to_csv('ex2.csv', sep='\t', encoding='utf-8')
 
 
-# Create SQLite database using SQLAlchemy
+# Create SQLite database 
 engine = create_engine("sqlite:///trainstops.sqlite")
 
 dtype={
