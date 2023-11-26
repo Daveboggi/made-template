@@ -11,7 +11,7 @@ def is_valid_ifopt(value):
 
 # Download the CSV data
 csv_url = "https://download-data.deutschebahn.com/static/datasets/haltestellen/D_Bahnhof_2020_alle.CSV"
-df = pd.read_csv(csv_url, delimiter=";", decimal=",")
+df = pd.read_csv(csv_url, sep=';', decimal=",")
 
 
 # Drop the "Status" column
