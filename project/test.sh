@@ -1,0 +1,1 @@
+py.test project/test_pipeline.py
