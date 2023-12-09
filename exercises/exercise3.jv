@@ -1,0 +1,114 @@
+pipeline CarsPipeline {
+
+
+    constraint PositvieValue oftype RangeConstraint {
+        lowerBound: 0;
+        lowerBoundInclusive: false;
+    }
+
+    valuetype PositiveInteger oftype integer {
+        constraints: [PositvieValue];
+    }
+
+    constraint CINRestriction oftype LengthConstraint {
+        minLength: 5;
+        maxLength: 5;
+    }
+
+    valuetype CIN oftype text {
+        constraints: [CINRestriction];
+    }
+
+    block Header_Writer_ColA_C oftype CellWriter {
+        at: range A1:C1;
+        write: ["date", "CIN", "name"];
+    }
+
+    block Header_Writer_ColM oftype CellWriter {
+        at: cell M1;
+        write: ["petrol"];
+    }
+
+    block Header_Writer_ColW oftype CellWriter {
+        at: cell W1;
+        write: ["diesel"];
+    }
+
+    block Header_Writer_ColAG oftype CellWriter {
+        at: cell AG1;
+        write: ["gas"];
+    }
+
+    block Header_Writer_ColAQ oftype CellWriter {
+        at: cell AQ1;
+        write: ["electro"];
+    }
+
+    block Header_Writer_ColBA oftype CellWriter {
+        at: cell BA1;
+        write: ["hybrid"];
+    }
+
+    block Header_Writer_ColBK oftype CellWriter {
+        at: cell BK1;
+        write: ["plugInHybrid"];
+    }
+
+    block Header_Writer_ColBU oftype CellWriter {
+        at: cell BU1;
+        write: ["others"];
+    }
+
+    block CarsDataExtractor oftype HttpExtractor {
+        url: "https://www-genesis.destatis.de/genesis/downloads/00/tables/46251-0021_00.csv";
+    }
+
+     block CarsFileInterpreter oftype TextFileInterpreter {
+        encoding: "utf8";
+    }
+
+    block CarsRangeSelector oftype TextRangeSelector {
+        lineFrom: 7;
+        lineTo: 483;
+    }
+
+    block CarsInterpreter oftype CSVInterpreter {
+        delimiter: ";";
+    }
+
+    block CarsLoader oftype SQLiteLoader {
+        table: "cars";
+        file: "./cars.sqlite";
+    }
+
+    block CarsTableInterpreter oftype TableInterpreter {
+        header: true;
+        columns: [
+            "date" oftype text,
+            "CIN" oftype CIN,
+            "name" oftype text, 
+            "petrol" oftype PositiveInteger,
+            "diesel" oftype PositiveInteger,
+            "gas" oftype PositiveInteger,
+            "electro" oftype PositiveInteger,
+            "hybrid" oftype PositiveInteger,
+            "plugInHybrid" oftype PositiveInteger,
+            "others" oftype PositiveInteger
+        ];
+    }
+  
+    CarsDataExtractor
+        ->CarsFileInterpreter
+        ->CarsRangeSelector
+        ->CarsInterpreter
+        ->Header_Writer_ColA_C
+        ->Header_Writer_ColM
+        ->Header_Writer_ColW
+        ->Header_Writer_ColAG
+        ->Header_Writer_ColAQ
+        ->Header_Writer_ColBA
+        ->Header_Writer_ColBK
+        ->Header_Writer_ColBU
+        ->CarsTableInterpreter
+        ->CarsLoader;
+}
