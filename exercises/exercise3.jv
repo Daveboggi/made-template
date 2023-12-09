@@ -64,7 +64,7 @@ pipeline CarsPipeline {
     }
 
      block CarsFileInterpreter oftype TextFileInterpreter {
-        encoding: "utf8";
+        encoding: "latin2";
     }
 
     block CarsRangeSelector oftype TextRangeSelector {
