@@ -12,7 +12,7 @@ Do electric vehicles have a significant impact on the co2 emission value and air
 ## Description
 
 <!-- Describe your data science project in max. 200 words. Consider writing about why and how you attempt it. -->
-This project faces the topic emobility in sense of analyzing the impact of electric vehicles on the air quality and especially the CO2 emission in germany. This could be used to think about future travel possibilities.
+This project faces the topic emobility in sense of analyzing the impact of electric vehicles on the air quality and especially the CO2 emission in germany. Moreover should be analyzed, if other travel possibilites are better for the environment. This could be used to think about future travel possibilities.
 
 ## Datasources
 
