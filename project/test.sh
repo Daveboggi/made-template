@@ -1,3 +1,3 @@
 pip install -r requirements.txt
 ls
-pytest test_pipeline.py
+pytest project/test_pipeline.py
