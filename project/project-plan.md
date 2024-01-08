@@ -7,12 +7,12 @@ Analyzing the impact of electric vehicles to the co2 value and the air quality i
 ## Main Question
 
 <!-- Think about one main question you want to answer based on the data. -->
-Do electric vehicles have a significant impact on the co2 emission value and airquality in germany?
+Do electric vehicles have a significant impact on the co2 emission value in germany?
 
 ## Description
 
 <!-- Describe your data science project in max. 200 words. Consider writing about why and how you attempt it. -->
-This project faces the topic emobility in sense of analyzing the impact of electric vehicles on the air quality and especially the CO2 emission in germany. Moreover should be analyzed, if other travel possibilites are better for the environment. This could be used to think about future travel possibilities.
+This project faces the topic emobility in sense of analyzing the impact of electric vehicles on the CO2 emission in germany. The CO2 emission value will be analyzed from 2014 until 2020 in germany and from 2018 to 2022 in Münster. Compared to that the project analyzes the registration of new vehicles for different driving opportunities (e.g. electric, hybrid, petrol, ...). 
 
 ## Datasources
 
@@ -38,7 +38,7 @@ This project faces the topic emobility in sense of analyzing the impact of elect
 2. Analyzing the co2 emission value over the last 5 years
 3. Analyzing the registration of electric vehicles over the last 5 years
 4. Creating Datapipeline
-5. Analyze dependencies of data
+5. Compare analysis of data and plot graphs
 6. Create Report
 
 
