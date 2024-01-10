@@ -4,7 +4,7 @@
 
 ## Overview
 The goal of this project is to find out, if electric vehicles have a significant positive impact of our environment especially on the co2 emission value.
-In the `project` folder you can find the [datapipeline](https://github.com/Daveboggi/made-template/blob/main/project/pipeline.py) which loads the data from the provided datasources and save the modified data in csv format in the `data` folder. Moreover you will find a file for testing purpose and workflow files in the `workflow` and the final report as well.
+In the `project` folder you can find the [datapipeline](https://github.com/Daveboggi/made-template/blob/main/project/pipeline.py) which loads the data from the provided datasources and save the modified data in csv format in the `data` folder. Moreover you will find a file for testing purpose and workflow files in the `workflow`` and the final report as well.
 
 ## Context
 This repository is the result of my participation in the course [Advanced Methods of Software Engineering](https://oss.cs.fau.de/teaching/specific/amse/) provided by the [Professorship of Open-Source Software](https://oss.cs.fau.de) from FAU. <br>
