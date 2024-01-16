@@ -2,6 +2,7 @@ import pytest
 import pipeline as pipe
 import pathlib
 import csv
+import pandas as pd
 
 def test_get_datasources():
     #Arrange
