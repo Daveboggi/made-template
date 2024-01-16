@@ -3,3 +3,4 @@ numpy
 pandas
 sqlalchemy
 openpyxl
+xlrd
